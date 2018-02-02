@@ -1,12 +1,19 @@
+/* Universal selektor(väljer alla element)*/
 * {
     margin: 0;
     padding: 0;
 }
 
+/*Vi sätter standard font-size till 10px för att underlätta användandet av "rem"*/
 html {
     font-size: 10px;
 }
 
+/*
+    Vi sätter font till 'Lato'
+    Global padding till vår body, 3 rem(30px)
+    font-size 1.6rem = 16px
+*/
 body {
     font-family: 'Lato', sans-serif;
     padding: 3rem;
@@ -14,12 +21,20 @@ body {
     font-size: 1.6rem;
 }
 
+/*
+    Vi sätter en gradient som ett grönt filter över vår bild
+    height: Vi sätter bildens höjd till 95vh( 95% viewport height)
+    Size och position: Cover för att täcka hela bilden oberoende av storlek,
+                        center för att centrera bilden
+
+    Position: vi ger elementet en relativ position till parent-element
+*/
 header {
     background-image: linear-gradient(
         to right bottom, 
         rgba(85, 163, 82, 0.2), 
         rgba(88, 221, 134, 0.3)),
-        url(/img/hero.jpg);
+        url(./img/hero.jpg);
     
     height: 95vh;
     background-size: cover;
@@ -27,6 +42,12 @@ header {
     position: relative;
 }
 
+/*
+    Vi placerar vår content i mitten av vår header med hjälp av
+    absolut position, flyttar elementet med top/left(50%),
+    Vi sätter elementets "startposition" till mitten av elementet
+    med translate(-50%, -50%)
+*/
 .heading-content {
     width: 90%;
     position: absolute;
@@ -37,11 +58,22 @@ header {
     text-transform: uppercase;
 }
 
+/*
+    Vi löser animationens "hopp"-problem med
+    backface-visibility
+*/
 .heading-primary {
     color: #f6f6f6;
     backface-visibility: hidden;
 }
 
+/*
+    Vi ändrar display till block då ett span-element 
+    inte är ett block element(börjar på ny rad)
+
+    Lägger till animationen slideInLeft som animerar
+    över 1 sekund och segar ner mot slutet med ease-out
+*/
 .heading-primary-main {
     display: block;
     font-size: 6rem;
@@ -57,7 +89,13 @@ header {
     animation: slideInRight 1s ease-out;
 }
 
+/*
+    Animationer skapas med nyckelordet "@keyframes" följt av namn
+    I animationen måste vi definiera dess states, det gör vi med
+    procentvärden.
 
+    Inuti procentvärden sätter vi dess instruktioner.
+*/
 @keyframes slideInLeft{
     0% {
         opacity: 0;
@@ -84,14 +122,21 @@ header {
 
 .short-info {
     text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
 }
 
 .short-info h2 {
     font-size: 3.5rem;
+    text-transform: uppercase;
 }
 
+/*
+    Vi använder pseudoklassen "::after" för att lägga till
+    en smal grön border under vår h2
+    
+    "::after" kräver att vi har content, i det här fallet har vi tom content
+*/
 .short-info h2::after {
     content: "";
     display: block;
@@ -110,10 +155,39 @@ header {
     
 }
 
+/*
+    Här definierar vi en kolumn som tar upp 25%
+    av sidans bredd.
+
+    padding right/left har 1% vardera
+    +
+    width 23%
+    =
+    25%
+*/
 .col-1-of-4 {
     padding: 0 1%;
     width: 23%;
     float: left;
+    margin:0 auto;
+}
+
+/*
+    Här överskrider vi bootstraps css klass och
+    sätter höjden på bilden till 20rem(200px)
+*/
+.card-img-top {
+    height: 20rem;
+}
+
+.places {
+    margin: 10rem auto;
+    width: 120rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
 }
 
 
