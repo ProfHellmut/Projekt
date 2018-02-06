@@ -34,7 +34,7 @@ header {
         to right bottom, 
         rgba(85, 163, 82, 0.2), 
         rgba(88, 221, 134, 0.3)),
-        url(./img/hero.jpg);
+        url(/img/hero.jpg);
     
     height: 95vh;
     background-size: cover;
